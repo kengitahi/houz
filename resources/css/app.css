@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom CSS */
+img:where([aria-current="true"]) {
+    @apply border-[2px] border-red-500;
+}
