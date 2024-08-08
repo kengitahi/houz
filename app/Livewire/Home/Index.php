@@ -10,7 +10,7 @@ class Index extends Component
 
     public $properties;
 
-    public $hitsPerPage = 30;
+    public $hitsPerPage = 16;
     public $page = 0;
 
 
