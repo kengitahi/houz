@@ -63,7 +63,7 @@
         </div>
         <a class="inline-flex items-center rounded-lg border-2 border-gray-900 px-4 py-2 text-center text-sm font-semibold text-gray-900 hover:bg-gray-900 hover:font-medium hover:text-white focus:outline-none focus:ring-2 focus:ring-gray-900 dark:bg-gray-900 dark:hover:text-gray-900 dark:focus:ring-gray-900"
             href="{{ route('singleProperty', $property['externalID']) }}">
-            See Property
+            View Property
             <svg aria-hidden="true" class="ms-2 h-3.5 w-3.5 rtl:rotate-180" fill="none" viewBox="0 0 14 10"
                 xmlns="http://www.w3.org/2000/svg">
                 <path d="M1 5h12m0 0L9 1m4 4L9 9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
