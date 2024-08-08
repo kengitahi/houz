@@ -1,8 +1,17 @@
+@props(['images'])
+
 <div class="relative -z-10 mx-auto w-full" data-carousel="slide" id="gallery">
     <!-- Carousel wrapper -->
     <div class="relative h-56 overflow-hidden rounded-lg md:h-[25rem]">
         <!-- Item 1 -->
-        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+        @for ($i = 0; $i < 5; $i++)
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <img alt=""
+                    class="absolute left-1/2 top-1/2 block h-auto w-full -translate-x-1/2 -translate-y-1/2 object-cover"
+                    src="{{ $images[$i]['url'] }}">
+            </div>
+        @endfor
+        {{-- <div class="hidden duration-700 ease-in-out" data-carousel-item>
             <img alt=""
                 class="absolute left-1/2 top-1/2 block h-auto w-full -translate-x-1/2 -translate-y-1/2 object-cover"
                 src="{{ asset('storage/property-imgs/img1.jpeg') }}">
@@ -30,7 +39,7 @@
             <img alt=""
                 class="absolute left-1/2 top-1/2 block h-auto w-full -translate-x-1/2 -translate-y-1/2 object-cover"
                 src="{{ asset('storage/property-imgs/img2.jpeg') }}">
-        </div>
+        </div> --}}
     </div>
     <!-- Slider controls -->
     <button
@@ -61,7 +70,11 @@
     </button>
     <!-- Slider indicators -->
     <div class="absolute bottom-5 left-1/2 z-30 flex -translate-x-1/2 space-x-3 rtl:space-x-reverse">
-        <img aria-current="true" aria-label="Slide 1" class="h-16 w-16 cursor-pointer rounded-lg"
+        @for ($i = 0; $i < 5; $i++)
+            <img aria-current="true" aria-label="Slide 1" class="h-16 w-16 cursor-pointer rounded-lg"
+                data-carousel-slide-to="$i" src="{{ $images[$i]['url'] }}" />
+        @endfor
+        {{-- <img aria-current="true" aria-label="Slide 1" class="h-16 w-16 cursor-pointer rounded-lg"
             data-carousel-slide-to="0" src="{{ asset('storage/property-imgs/img1.jpeg') }}" />
         <img aria-current="false" aria-label="Slide 2" class="h-16 w-16 cursor-pointer rounded-lg"
             data-carousel-slide-to="1" src="{{ asset('storage/property-imgs/img2.jpeg') }}" />
@@ -70,6 +83,6 @@
         <img aria-current="false" aria-label="Slide 4" class="h-16 w-16 cursor-pointer rounded-lg"
             data-carousel-slide-to="3" src="{{ asset('storage/property-imgs/img1.jpeg') }}" />
         <img aria-current="false" aria-label="Slide 5" class="h-16 w-16 cursor-pointer rounded-lg"
-            data-carousel-slide-to="4" src="{{ asset('storage/property-imgs/img2.jpeg') }}" />
+            data-carousel-slide-to="4" src="{{ asset('storage/property-imgs/img2.jpeg') }}" /> --}}
     </div>
 </div>

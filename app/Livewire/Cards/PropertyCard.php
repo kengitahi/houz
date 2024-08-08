@@ -7,6 +7,12 @@ use Livewire\Component;
 class PropertyCard extends Component
 {
     public $type;
+    public $property;
+
+    public function mount($property)
+    {
+        $this->property = $property;
+    }
 
     public function render()
     {

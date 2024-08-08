@@ -51,14 +51,14 @@ class HomeSearch extends Component
     public function getPropertyLocations($query)
     {
         $data = Http::withHeaders([
-            'x-rapidapi-host' => 'bayut.p.rapidapi.com',
+            'x-rapidapi-host' => config('services.rapidapi.host'),
             'x-rapidapi-key' => config('services.rapidapi.key'),
         ])->withUrlParameters([
-            'endpoint' => 'https://bayut.p.rapidapi.com/',
+            'endpoint' => "https://" . config('services.rapidapi.host'),
             'query' => $query,
             'hitsPerPage' => $this->hitsPerPage,
         ])
-            ->get('{+endpoint}auto-complete?query={query}&hitsPerPage={hitsPerPage}&page={page}')
+            ->get('{+endpoint}/auto-complete?query={query}&hitsPerPage=20&page=1&lang=en')
             ->json();
 
         return $data['hits'];
@@ -73,17 +73,17 @@ class HomeSearch extends Component
         }
 
         $data = Http::withHeaders([
-            'x-rapidapi-host' => 'bayut.p.rapidapi.com',
+            'x-rapidapi-host' => config('services.rapidapi.host'),
             'x-rapidapi-key' => config('services.rapidapi.key'),
         ])->withUrlParameters([
-            'endpoint' => 'https://bayut.p.rapidapi.com/',
+            'endpoint' => "https://" . config('services.rapidapi.host'),
             'name' => $this->searchLocation,
             'purpose' => $this->purpose,
             'rentFrequency' => $this->rentFrequency,
             'hitsPerPage' => $this->hitsPerPage,
             'page' => $this->page,
         ])
-            ->get('{+endpoint}properties/list?locationExternalIDs={name}&purpose={purpose}&rentFrequency={rentFrequency}&hitsPerPage={hitsPerPage}&page={page}&lang=en&sort=city-level-score&category={category}&roomsMin={roomsMin}&roomsMax={roomsMax}&bathsMin={bathsMin}&bathsMax={bathsMax}&priceMin={priceMin}&priceMax={priceMax}&furnished={furnished}')
+            ->get('{+endpoint}/properties/list?name={name}&purpose={purpose}&rentFrequency={rentFrequency}&hitsPerPage={hitsPerPage}&page={page}&lang=en&sort=city-level-score&category={category}&roomsMin={roomsMin}&roomsMax={roomsMax}&bathsMin={bathsMin}&bathsMax={bathsMax}&priceMin={priceMin}&priceMax={priceMax}&furnished={furnished}')
             ->json();
 
         dd($data);

@@ -5,11 +5,8 @@
     <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
 
         {{-- for each here --}}
-
-        <livewire:cards.property-card />
-        <livewire:cards.property-card />
-        <livewire:cards.property-card />
-        <livewire:cards.property-card />
+        @foreach ($properties as $property)
+            <livewire:cards.property-card :property="$property" />
+        @endforeach
         <div>
-
 </section>
